@@ -1,0 +1,16 @@
+.app_home {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: stretch;
+    column-gap: 3rem;
+    row-gap: 0.75rem;
+}
+
+@media screen and (max-width: 650px) {
+    .app_home {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+}

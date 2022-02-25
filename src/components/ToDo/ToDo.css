@@ -1,0 +1,21 @@
+.todo_group-task {
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    padding: 0.25rem;
+    gap: 1rem;
+    border-bottom: 0.15rem solid darkgray;
+}
+
+.todo_group-task:last-child {
+    border-bottom: none;
+}
+
+.todo_group-task > span {
+    cursor: pointer;
+    color: red;
+}
+
+.dragging {
+    border: 0.15rem solid darkgray !important;
+    background-color: white;
+}

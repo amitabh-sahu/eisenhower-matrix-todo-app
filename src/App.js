@@ -1,24 +1,44 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Home } from './containers';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { useDispatch, useSelector } from 'react-redux';
+import { UPDATE_TODO } from './constants';
 import './App.css';
 
 function App() {
+  const allToDoSection = useSelector((state) => state);
+  const dispatch = useDispatch();
+
+  const handleOnDragEnd = (result) => {
+    const { source, destination } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    if (source.droppableId === destination.droppableId && source.index === destination.index) {
+      return;
+    }
+
+    const targetItem = allToDoSection[source.droppableId][source.index];
+
+    const updatedSourceToDoSection = allToDoSection[source.droppableId];
+    updatedSourceToDoSection.splice(source.index, 1);
+
+    const updatedDestinationToDoSection = allToDoSection[destination.droppableId];
+    updatedDestinationToDoSection.splice(destination.index, 0, targetItem);
+
+    dispatch({ type: UPDATE_TODO, target: source.droppableId, data: updatedSourceToDoSection });
+    dispatch({ type: UPDATE_TODO, target: destination.droppableId, data: updatedDestinationToDoSection });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DragDropContext onDragEnd={handleOnDragEnd}>
+      <div className="App">
+        <div className='app_title'>To Do App</div>
+        <Home />
+      </div>
+    </DragDropContext>
   );
 }
 

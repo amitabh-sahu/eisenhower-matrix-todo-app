@@ -1,0 +1,67 @@
+.add_item-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+}
+
+.add_item-modal {
+    border-radius: 0.5rem;
+    display: grid;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.add_item-modal, button {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.add_item-modal > div {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.add_item-modal > div > button {
+    border: 0.175rem solid white;
+    border-radius: 50%;
+    padding: 0.5rem;
+    aspect-ratio: 1;
+    line-height: 1rem;
+    vertical-align: middle;
+    background: transparent;
+    cursor: pointer;
+}
+
+.add_item-modal > .field {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+}
+
+input {
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+}
+
+.modal-do-first {
+    background-color: yellowgreen;
+}
+.modal-schedule {
+    background-color: dodgerblue;
+}
+.modal-delegate {
+    background-color: orange;
+}
+.modal-do-not-do {
+    background-color: red;
+}
