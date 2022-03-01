@@ -7,8 +7,8 @@ The app has grouped items into 4 section. Each section show the count of items u
 ## Technologies
 * React JS 17.0
 * react-redux 7.2
-* beautiful-dnd 13.1
---dev
+* beautiful-dnd 13.1  
+--dev--
 * cypress 9.5
 * testing-library/cypress 8.0
 
